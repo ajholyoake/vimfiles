@@ -1,0 +1,5 @@
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'marijnh/tern_for_vim'
+Bundle 'bling/vim-airline'
+Bundle 'moll/vim-node'
+Bundle 'ap/vim-css-color'
