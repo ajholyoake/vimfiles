@@ -16,6 +16,11 @@ if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles.local
 endif
 
+" vim-airline settings
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
 " ensure ftdetect et al work by including this after the Vundle stuff
 filetype plugin indent on
 
@@ -31,7 +36,7 @@ set ignorecase                                               " case-insensitive 
 set incsearch                                                " search as you type
 set laststatus=2                                             " always show statusline
 set list                                                     " show trailing whitespace
-set listchars=tab:▸\ ,trail:▫
+set listchars=tab:▸\ ,trail:·,extends:❯,precedes:❮
 set number                                                   " show line numbers
 set ruler                                                    " show where you are
 set scrolloff=3                                              " show context above/below cursorline
@@ -43,12 +48,34 @@ set tabstop=8                                                " actual tabs occup
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
+set colorcolumn=80
+
+
+" MacVim settings
+set clipboard+=unnamed
+set vb t_vb=
+set guioptions-=m "no menu
+set guioptions-=T "no toolbar
+set guioptions-=l
+set guioptions+=c "no popup messages
+set guioptions-=L
+set guioptions-=r "no scrollbar
+set guioptions-=R
+
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
 if exists('$TMUX')  " Support resizing in tmux
   set ttymouse=xterm2
 endif
+
+
+" Center search matches
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+nnoremap / /\v
+vnoremap / /\v
 
 " keyboard shortcuts
 let mapleader = ','
