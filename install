@@ -1,0 +1,13 @@
+#!/bin/bash
+p=$(pwd)
+h=$HOME
+files=('vimrc','vim','vimrc.bundles','vimrc.bundles.local','vimrc.local')
+for i in "${array[@]}"
+do
+  if [ -z $p/.$i ]
+  then
+    mv $h/.$i $h/.$i.old
+  fi
+
+  ln -s $p/$i $h/.$i
+done
