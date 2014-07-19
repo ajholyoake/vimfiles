@@ -13,8 +13,13 @@ if (&t_Co == 256 || has('gui_running'))
     colorscheme solarized
   else
     colorscheme desert
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
   endif
+  au GUIEnter * set t_vb=
 endif
+
+set vb t_vb= 
+
 
 " Disambiguate ,a & ,t from the Align plugin, making them fast again.
 "
@@ -35,6 +40,5 @@ silent! autocmd VimEnter * RemoveConflictingAlignMaps
 map ,v :sp ~/.vimrc<CR><C-W>_
 map <silent> ,V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
-set guifont=Droid_Sans_Mono_for_Powerline:h11
 
 au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod a+x <afile> | endif | endif

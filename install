@@ -1,8 +1,8 @@
 #!/bin/bash
 p=$(pwd)
 h=$HOME
-files=('vimrc','vim','vimrc.bundles','vimrc.bundles.local','vimrc.local','tmux.conf')
-for i in "${array[@]}"
+files=('gvimrc' 'vimrc' 'vim' 'vimrc.bundles' 'vimrc.bundles.local' 'vimrc.local' 'tmux.conf')
+for i in "${files[@]}"
 do
   if [ -z $p/.$i ]
   then
@@ -15,8 +15,10 @@ done
 sudo apt-get install ctags-exuberant
 sudo apt-get install tmux
 sudo apt-get install vim-gnome
+sudo apt-get install python-dev build-essential cmake
 
 git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
 vim -c "BundleInstall" -c "q" -c "q"
 
-
+sudo cp Droid_Sans_Mono_for_Powerline.otf /usr/local/share/fonts
+sudo fc-cache -fv
